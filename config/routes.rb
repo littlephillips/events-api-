@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  resources :engagements
-  resources :reviews
-  resources :bookings
+  resources :engagements, only: [:index, :create, :destroy]
+  resources :reviews, only: [:index, :create]
+  resources :bookings, only: [:index, :create, :destroy]
   resources :events
-  resources :admins
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :admins, only: [:index, :create, :update, :destroy]
 end
