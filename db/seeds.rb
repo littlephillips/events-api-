@@ -24,12 +24,12 @@ Booking.create(fullname: "Christiano Ronaldo", phonenumber: 25487654322, email: 
 Booking.create(fullname: "Steph Curry", phonenumber: 25487654322, email: "curry@gmail.com", eventname: "sports event", eventdate: "2023-06-19" )
 Booking.create(fullname: "Luka Doncic", phonenumber: 25487654322, email: "doncic@gmail.com", eventname: "graduation", eventdate: "2023-03-19" )
 
-#Comment
-Review.create(fullname: "Luke Kennard", email: "luke@gmail.com", comment: "I love your services", booking_id: 1, event_id: 1)
-Review.create(fullname: "Ja Morant",    email: "morant@gmail.com",  comment: "Perfecto!", booking_id: 2, event_id: 2)
-Review.create(fullname: "Simon Jordan", email: "jordan@gmail.com", comment: "Gracias for the wonderful event!", booking_id: 3, event_id: 3)
-Review.create(fullname: "Steph Curry",  email: "curry@gmail.com", comment: "Very professional....", booking_id: 4, event_id: 4)
-Review.create(fullname: "Luka Doncic",  email: "doncic@gmail.com",comment: "I think you can improve on the food spices level", booking_id: 5, event_id: 5)
+#Rview
+Review.create(fullname: "Luke Kennard", email: "luke@gmail.com", review: "I love your services", booking_id: 1, event_id: 1)
+Review.create(fullname: "Ja Morant",    email: "morant@gmail.com",  review: "Perfecto!", booking_id: 2, event_id: 2)
+Review.create(fullname: "Simon Jordan", email: "jordan@gmail.com", review: "Gracias for the wonderful event!", booking_id: 3, event_id: 3)
+Review.create(fullname: "Steph Curry",  email: "curry@gmail.com", review: "Very professional....", booking_id: 4, event_id: 4)
+Review.create(fullname: "Luka Doncic",  email: "doncic@gmail.com", review: "I think you can improve on the food spices level", booking_id: 5, event_id: 5)
 
 #Engagements
 Engagement.create(fullname: "Ann Karanja", email: "tate@gmail.com", comment: "I would like to know if you offer multiple day events management")
