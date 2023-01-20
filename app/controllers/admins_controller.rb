@@ -4,7 +4,8 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index
-        render json: Admin.all, status: :ok
+        admin = Admin.find_by(current_user)
+        render json: admin, status: :ok
     end
 
     def create 
@@ -18,10 +19,21 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
         render json: admin, status: :ok
     end
 
-    def destroy
-        admin = Admin.find(params[:id])
-        admin.destroy
-        head :no_content
+    # def destroy
+    #     admin = Admin.find(params[:id])
+    #     admin.destroy
+    #     head :no_content
+    # end
+
+
+    def destroy 
+        admin = Admin.find_by(username: params[:username])
+        if admin 
+            admin.destroy
+            head :no_content
+        else
+            render json: {errors: "Admin not Found"}, status: :unprocessable_entity
+        end
     end
 
     private 

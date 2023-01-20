@@ -13,18 +13,18 @@ class EventsController < ApplicationController
     end
 
     def show
-        event = Event.find_by(:id params[:id])
+        event = Event.find(params[:id])
         render json: event, status: :ok
     end
 
     def update
-        event = Event.find_by(:id params[:id])
+        event = Event.find(params[:id])
         event.update(event_params)
         render json: event, status: :created
     end
 
     def destroy
-        event = Event.find_by(:id params[:id])
+        event = Event.find(params[:id])
         event.destroy
         head :no_content
     end
