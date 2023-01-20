@@ -1,8 +1,7 @@
 class Event < ApplicationRecord
 
-    # belongs_to : Booking
-
     belongs_to :admin
 
+    has_many :reviews
     
 end
