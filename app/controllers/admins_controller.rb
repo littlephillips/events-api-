@@ -1,5 +1,7 @@
 class AdminsController < ApplicationController
     
+    skip_before_action :authorized, only: [:create]
+
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
@@ -19,26 +21,15 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
         render json: admin, status: :ok
     end
 
-    # def destroy
-    #     admin = Admin.find(params[:id])
-    #     admin.destroy
-    #     head :no_content
-    # end
-
-
-    def destroy 
-        admin = Admin.find_by(username: params[:username])
-        if admin 
-            admin.destroy
-            head :no_content
-        else
-            render json: {errors: "Admin not Found"}, status: :unprocessable_entity
-        end
+    def destroy
+        admin = Admin.find(params[:id])
+        admin.destroy
+        head :no_content
     end
 
     private 
     def admin_params
-        params.permit(:username, :email, :pasword, :password_confirmation)
+        params.permit(:username, :email, :password, :password_confirmation)
     end
 
     def admin_update_params

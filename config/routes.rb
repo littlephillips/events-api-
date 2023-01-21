@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :admins, only: [:index, :create, :update, :destroy]
 
   post "/login", to: "auth#create"
-  delete "/logout", to: "admin#destroy"
+  delete "/logout", to: "auth#destroy"
 
   get "/me", to: "admin#index"
 end

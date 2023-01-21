@@ -1,5 +1,6 @@
 class AuthController < ApplicationController
 
+
     def create
         admin = Admin.find_by(username: params[:username])
 
