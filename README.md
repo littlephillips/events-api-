@@ -4,7 +4,7 @@
     Admin and Clients
 
 *   Admin is a special user
-    to signup Admin include allinadmin in the username
+*   To signup Admin include allinadmin in the username
 
 *   Admin can create an event
   
