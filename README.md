@@ -1,24 +1,43 @@
-# README
+# AllinEvents README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users 
+    Admin and Clients
 
-Things you may want to cover:
+*   Admin is a special user
+    to signup Admin include allinadmin in the username
 
-* Ruby version
+*   Admin can create an event
+  
+*   view current booking and engagements
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+*  clients don't have to login 
+*  They input their details as they book
+*  can leave a review
+## Models
 
-* Database initialization
+    Admin 
+    Engagement
+    Review
+    Event
+    Booking
 
-* How to run the test suite
+# validations 
 
-* Services (job queues, cache servers, search engines, etc.)
+## Admin
+    validates :username, presence: true
+    validates :email, presence: true, uniqueness: true    
+    validates :password, length: {within: 4..10}
 
-* Deployment instructions
+    validate :must_have_allin_admin
 
-* ...
+## Bookings
+    validates :fullname, :email, :phonenumber, :eventname, :eventdate, presence: true
+    validates :email, presence: true, uniqueness: true
+    
+
+
+
+
+
