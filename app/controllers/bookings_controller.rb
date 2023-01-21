@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-    skip_before_action :authorized, only: [:index, :create]
+    skip_before_action :authorized, only: [:index, :destroy, :create]
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :invalid_message
