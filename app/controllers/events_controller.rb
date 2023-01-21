@@ -2,8 +2,7 @@ class EventsController < ApplicationController
     skip_before_action :authorized, only: [:index, :show]
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-    
+    rescue_from ActiveRecord::RecordInvalid, with: :invalid_message    
     def index
         render json: Event.all, status: :ok
     end
@@ -39,7 +38,7 @@ class EventsController < ApplicationController
         render json: {error: "Event not found"}, status: :not_found
     end
 
-    def render_unprocessable_entity_response
+    def invalid_message(invalid)
         render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
     end
 end

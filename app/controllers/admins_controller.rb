@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
     skip_before_action :authorized, only: [:create]
 
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+rescue_from ActiveRecord::RecordInvalid, with: :invalid_message
 
     def index
         admin = Admin.find_by(current_user)
@@ -11,7 +11,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
     end
 
     def create 
-        admin = Admin.create(admin_params)
+        admin = Admin.create!(admin_params)
         render json: admin, status: :created
     end
 
@@ -40,7 +40,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
         render json: {error: "Admin not Found"}, status: :not_found
     end
 
-    def render_unprocessable_entity_response 
-        reder json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
+    def invalid_message(invalid)
+        render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
     end
 end

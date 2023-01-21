@@ -25,9 +25,7 @@ Booking.create(fullname: "Steph Curry", phonenumber: 25487654322, email: "curry@
 Booking.create(fullname: "Luka Doncic", phonenumber: 25487654322, email: "doncic@gmail.com", eventname: "graduation", eventdate: "2023-03-19" )
 
 #Rview
-Review.create(fullname: "Luke Kennard", email: "luke@gmail.com", review: "I love your services", booking_id: 1, event_id: 1)
 Review.create(fullname: "Ja Morant",    email: "morant@gmail.com",  review: "Perfecto!", booking_id: 2, event_id: 2)
-Review.create(fullname: "Simon Jordan", email: "jordan@gmail.com", review: "Gracias for the wonderful event!", booking_id: 3, event_id: 3)
 Review.create(fullname: "Steph Curry",  email: "curry@gmail.com", review: "Very professional....", booking_id: 4, event_id: 4)
 Review.create(fullname: "Luka Doncic",  email: "doncic@gmail.com", review: "I think you can improve on the food spices level", booking_id: 5, event_id: 5)
 

@@ -1,19 +1,19 @@
+
 class Admin < ApplicationRecord
     has_secure_password
-    has_many :events
 
-    validates : username, presence: true
-    validates :email, uniqueness: true
+    validates :username, presence: true
+    validates :email, presence: true, uniqueness: true    
     validates :password, length: {within: 4..10}
 
-    validates :must_have_allin_admin
+    validate :must_have_allin_admin
 
     def must_have_allin_admin
         unless username.match?(/allinadmin/)
-            errors.add(:username, "Must include allinadmin")
+            errors.add(:username, " MUST include allinadmin")
         end
     end
 
-
-
+    has_many :events 
+    has_many :bookings, through: :events
 end
